@@ -1,13 +1,25 @@
 package main
 
 import (
+	"fmt"
 	"os/exec"
+	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/pollenjp/sandbox-go/2022-08-03-140501/sample/path"
 )
 
 func TestMain(t *testing.T) {
-	// TODO: file名から _test を覗く処理をしたい
+	pc, file, line, ok := runtime.Caller(1)
+	if ok {
+		fmt.Printf("Called from %s, line #%d, func: %v\n",
+			file, line, runtime.FuncForPC(pc).Name())
+	}
+
+	fpath := path.Path{Filepath: file}
+	t.Logf("%s\n", fpath)
+
 	cmdList := []string{"go", "run", "main.go"}
 	subProc := exec.Command(cmdList[0], cmdList[1:]...)
 
