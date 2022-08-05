@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os/exec"
+	"regexp"
 	"runtime"
 	"strings"
 	"testing"
@@ -11,7 +12,7 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	pc, file, line, ok := runtime.Caller(1)
+	pc, file, line, ok := runtime.Caller(0)
 	if ok {
 		fmt.Printf("Called from %s, line #%d, func: %v\n",
 			file, line, runtime.FuncForPC(pc).Name())
@@ -20,7 +21,21 @@ func TestMain(t *testing.T) {
 	fpath := path.Path{Filepath: file}
 	t.Logf("%s\n", fpath)
 
-	cmdList := []string{"go", "run", "main.go"}
+	re := regexp.MustCompile("(?P<stem>.*)_test")
+	match := re.FindAllStringSubmatch(fpath.Stem(), 1)
+	groupNames := re.SubexpNames()
+	var groupIdx int
+	for i, name := range groupNames {
+		if name == "stem" {
+			groupIdx = i
+			break
+		}
+	}
+
+	originPath := fpath.Parent().Join(match[0][groupIdx] + ".go")
+	t.Logf("%s\n", originPath)
+
+	cmdList := []string{"go", "run", originPath.String()}
 	subProc := exec.Command(cmdList[0], cmdList[1:]...)
 
 	input := strings.Join(

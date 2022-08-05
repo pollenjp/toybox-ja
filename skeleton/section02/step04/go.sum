@@ -1,4 +1,6 @@
-github.com/pollenjp/sandbox-go v0.0.0-20220805123327-be35adfaf55f h1:89WSJYdbW4sFDnGtlxkBhZ8sLNsGv7THYmdV8qpVMBw=
-github.com/pollenjp/sandbox-go v0.0.0-20220805123327-be35adfaf55f/go.mod h1:Q1cYryybFaCtn/bSuP7VKk3f/oQarHcdtZcoMz09+6w=
-github.com/pollenjp/sandbox-go v0.0.0-20220805131530-8317694a1de4 h1:W3Ab3zkrG7EftpI5H+D5HZZNCcyvl6AT6bbcOwddcNA=
-github.com/pollenjp/sandbox-go v0.0.0-20220805131530-8317694a1de4/go.mod h1:tA2Ohj/MeKEtmc4RjqQ2Q+DhTY+jszBdQgwAeantB10=
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
+github.com/pollenjp/sandbox-go v0.0.0-20220805162244-b4d0beea107c h1:vPEOsEWe2I5fjPdpR0izW2pfdyyPzYkzDd58UfqlbXM=
+github.com/pollenjp/sandbox-go v0.0.0-20220805162244-b4d0beea107c/go.mod h1:tA2Ohj/MeKEtmc4RjqQ2Q+DhTY+jszBdQgwAeantB10=
+github.com/stretchr/testify v1.8.0 h1:pSgiaMZlXftHpm5L7V1+rVB+AZJydKsMxsQBIJw4PKk=
+gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
