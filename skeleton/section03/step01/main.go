@@ -6,15 +6,22 @@ import (
 
 func main() {
 	// 山札を作る
-	// TODO: 長さが0でキャパシティが13のintスライスの変数allを作成する
-
+	// 長さが0でキャパシティが13のintスライスの変数allを作成する
+	all := make([]int, 0, 13)
 	for n := 2; n <= 14; n++ { // 14がAを表す
-		// TODO: スライスallの末尾に変数nの値を追加する
+		// スライスallの末尾に変数nの値を追加する
+		all = append(all, n)
 	}
 
 	// 山札を表示させる
 	for i, n := range all {
-		// TODO: " 1番目: "のように出力する
+		// " 1番目: "のように出力する
+		fmt.Printf("%3d番目: ", i+1)
+
+		if n < 11 {
+			fmt.Printf("%d\n", n)
+			continue
+		}
 
 		switch n {
 		case 11:
