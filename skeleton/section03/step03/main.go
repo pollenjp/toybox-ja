@@ -6,18 +6,21 @@ import (
 	"time"
 )
 
-// TODO: string型をベースにしてsuit型を定義する
+// string型をベースにしてsuit型を定義する
+type suit string
 
 const (
 	suitHeart   suit = "♥"
 	suitClub    suit = "♣"
 	suitDiamond suit = "◆"
-	// TODO: ♠を表す定数suitSpadeを定義する
+	// ♠を表す定数suitSpadeを定義する
+	suitSpade suit = "♠"
 )
 
 type card struct {
-	suit   suit
-	// TODO: int型のnumberフィールドを定義する
+	suit suit
+	// int型のnumberフィールドを定義する
+	number int
 }
 
 func main() {
@@ -34,7 +37,8 @@ func main() {
 	for _, s := range suits {
 		for n := 2; n <= 14; n++ {
 			all = append(all, card{
-				// TODO: マークをセットする
+				// マークをセットする
+				suit:   s,
 				number: n,
 			})
 		}
@@ -68,7 +72,8 @@ func main() {
 		case 14:
 			fmt.Println("A")
 		default:
-			// TODO: 番号を改行ありで出力する
+			// 番号を改行ありで出力する
+			fmt.Println(c.number)
 		}
 	}
 }
