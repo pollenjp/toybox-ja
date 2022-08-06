@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pollenjp/sandbox-go/2022-08-03-140501/sample/path"
+	path "github.com/pollenjp/sandbox-go/2022-08-03-140501/sample/path"
 )
 
 func TestMain(t *testing.T) {
