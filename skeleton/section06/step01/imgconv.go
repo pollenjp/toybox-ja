@@ -106,10 +106,9 @@ func Decode(r io.Reader) (image.Image, Format, error) {
 	return nil, Unknown, image.ErrFormat
 }
 
-// TODO: convertAllをパッケージ外にエクスポート(公開)する
 // convertAllは指定したディレクトリ以下の画像ファイルの変換を行う
 // 変換前の形式をfromで変換後の形式をtoで指定する
-func convertAll(root string, to, from Format) error {
+func ConvertAll(root string, to, from Format) error {
 	walkfunc := func(path string, info fs.FileInfo, err error) (rerr error) {
 
 		// エラーが発生した
