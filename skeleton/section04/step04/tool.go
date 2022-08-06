@@ -16,11 +16,11 @@ func (m *memory) String() string {
 // 単位変換ツール
 type tool struct {
 	converters []*converter
-	// TODO: 履歴を記録するためのフィールド
-
+	// 履歴を記録するためのフィールド
+	memories []memory
 }
 
-func /* TODO: レシーバ */ start() {
+func (t *tool) start() {
 	for {
 
 		t.printMemories()
@@ -33,12 +33,17 @@ func /* TODO: レシーバ */ start() {
 		c := t.converters[no]
 		from := t.inputValue(c)
 		to := c.convert(from)
-		// TODO: 履歴を変数mに代入
+		// 履歴を変数mに代入
+		m := memory{
+			converter: c,
+			from:      from,
+			to:        to,
+		}
 
-		
 		t.memories = append(t.memories, m)
-		// TODO: 結果を表示する
 
+		// 結果を表示する
+		fmt.Printf("%s\n", m.String())
 
 		fmt.Println()
 	}
