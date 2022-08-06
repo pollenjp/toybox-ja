@@ -18,11 +18,6 @@ func main() {
 		// " 1番目: "のように出力する
 		fmt.Printf("%3d番目: ", i+1)
 
-		if n < 11 {
-			fmt.Printf("%d\n", n)
-			continue
-		}
-
 		switch n {
 		case 11:
 			fmt.Println("J")
