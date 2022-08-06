@@ -23,9 +23,13 @@ func main() {
 		all[i], all[j] = all[j], all[i]
 	})
 
-	// TODO: 山札の前方5枚を手札としcardsに入れる
+	num_cards := 5
 
-	// TODO: 6枚目以降を新しい山札とする
+	// 山札の前方5枚を手札としcardsに入れる
+	cards := all[:num_cards]
+
+	// 6枚目以降を新しい山札とする
+	all = all[num_cards:]
 
 	// 手札を表示させます
 	for i, n := range cards {
