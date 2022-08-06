@@ -29,7 +29,14 @@
 		},
 		{
 			"path": "skeleton\\section06\\step01"
+		},
+		{
+			"path": "skeleton\\section06\\step02"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"cSpell.ignoreWords": [
+			"imgconv"
+		]
+	}
 }
