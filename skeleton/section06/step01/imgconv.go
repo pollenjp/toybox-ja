@@ -1,4 +1,4 @@
-package main // TODO: imgconvパッケージにする
+package imgconv
 
 import (
 	"image"
