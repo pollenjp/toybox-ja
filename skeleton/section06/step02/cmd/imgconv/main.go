@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"os"
 
-	imgconv "github.com/gohandson/toybox-ja/solution/section06/step02"
+	imgconv "github.com/pollenjp/toybox-ja/skeleton/section06/step02"
 )
 
 var (
 	flagTo   = imgconv.PNG
-	flagFrom = imgconv.JPEG // TODO: imgconv.TIFFに変更
+	flagFrom = imgconv.TIFF
 )
 
 func init() {
