@@ -7,7 +7,7 @@ import (
 	"os"
 	"runtime/trace"
 
-	imgconv "github.com/gohandson/toybox-ja/skeleton/section11/step01"
+	imgconv "github.com/pollenjp/toybox-ja/skeleton/section11/step01"
 )
 
 var (
@@ -38,13 +38,16 @@ func run() (rerr error) {
 		}
 	}()
 
-	// TODO: 出力先はファイルfとしtrace.Startを呼ぶ
-	
-	// TODO: deferでtrace.Stopを呼ぶ
-
+	// 出力先はファイルfとしtrace.Startを呼ぶ
+	if err = trace.Start(f); err != nil {
+		panic(err)
+	}
+	defer trace.Stop()
 
 	ctx, task := trace.NewTask(context.Background(), "imgconv")
-	// TODO: deferでtask.Endを呼ぶ
+
+	// deferでtask.Endを呼ぶ
+	defer task.End()
 
 	if err := imgconv.ConvertAll(ctx, os.Args[1], flagFrom, flagTo); err != nil {
 		return err
