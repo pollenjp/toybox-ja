@@ -1,37 +1,84 @@
 {
 	"folders": [
 		{
+			"name": "step02",
 			"path": "skeleton\\section02\\step02"
 		},
 		{
+			"name": "step03",
 			"path": "skeleton\\section02\\step03"
 		},
 		{
+			"name": "step04",
 			"path": "skeleton\\section02\\step04"
 		},
 		{
+			"name": "step01",
 			"path": "skeleton\\section03\\step01"
 		},
 		{
+			"name": "step02",
 			"path": "skeleton\\section03\\step02"
 		},
 		{
+			"name": "step03",
 			"path": "skeleton\\section03\\step03"
 		},
 		{
+			"name": "step04",
 			"path": "skeleton\\section03\\step04"
 		},
 		{
+			"name": "step04",
 			"path": "skeleton\\section04\\step04"
 		},
 		{
+			"name": "step05",
 			"path": "skeleton\\section05\\step05"
 		},
 		{
+			"name": "step01",
 			"path": "skeleton\\section06\\step01"
 		},
 		{
+			"name": "step02",
 			"path": "skeleton\\section06\\step02"
+		},
+		{
+			"name": "step01",
+			"path": "skeleton\\section08\\step01"
+		},
+		{
+			"name": "step02",
+			"path": "skeleton\\section08\\step02"
+		},
+		{
+			"name": "step03",
+			"path": "skeleton\\section08\\step03"
+		},
+		{
+			"name": "step04",
+			"path": "skeleton\\section08\\step04"
+		},
+		{
+			"name": "step01",
+			"path": "skeleton\\section11\\step01"
+		},
+		{
+			"name": "step02",
+			"path": "skeleton\\section11\\step02"
+		},
+		{
+			"name": "step03",
+			"path": "skeleton\\section11\\step03"
+		},
+		{
+			"name": "step04",
+			"path": "skeleton\\section11\\step04"
+		},
+		{
+			"name": "step05",
+			"path": "skeleton\\section11\\step05"
 		}
 	],
 	"settings": {
