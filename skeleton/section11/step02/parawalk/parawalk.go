@@ -23,28 +23,30 @@ func Walk(root string, fn WalkFunc) error {
 		// ファイルの場合はゴールーチンで処理
 		wg.Add(1)
 		go func() {
-			// TODO: deferでwg.Doneを呼ぶ
+			// deferでwg.Doneを呼ぶ
+			defer wg.Done()
 
 			err := fn(path, info, err)
 			if err != nil {
-				// TODO: エラーチャネル(errCh)にエラーを送信
-
+				// エラーチャネル(errCh)にエラーを送信
+				errCh <- err
 			}
 		}()
 
 		return nil
 	})
 
-	// TODO: 以下の関数呼び出しを別のゴールーチンで起動する
-	func() {
+	// 以下の関数呼び出しを別のゴールーチンで起動する
+	go func() {
 		for err := range errCh {
 			rerr = multierr.Append(rerr, err)
 		}
 	}()
 
+	// filepath.Walk で発火した goroutine が終了するまで待機
 	wg.Wait()
-	// TODO: errChをクローズする
-
+	// エラーチャネル(errCh)をクローズ
+	close(errCh)
 
 	return rerr
 }
