@@ -12,7 +12,7 @@ import (
 	"runtime/trace"
 	"strings"
 
-	"github.com/gohandson/toybox-ja/skeleton/section11/step03/parawalk"
+	"github.com/pollenjp/toybox-ja/skeleton/section11/step03/parawalk"
 	"golang.org/x/image/tiff"
 )
 

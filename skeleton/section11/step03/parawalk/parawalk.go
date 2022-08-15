@@ -18,9 +18,13 @@ func Walk(root string, fn WalkFunc) error {
 			return fn(path, info, err)
 		}
 
-		// TODO: 関数fnをeg.Goで呼び出す
+		// 関数fnをeg.Goで呼び出す
 		// ファイルの場合はゴールーチンで処理
-		
+		eg.Go(
+			func() error {
+				return fn(path, info, err)
+			},
+		)
 
 		return nil
 	})
@@ -29,6 +33,7 @@ func Walk(root string, fn WalkFunc) error {
 		return err
 	}
 
-	// TODO: errgroupの結果を待ってエラーがあったら戻り値にする
+	// errgroupの結果を待ってエラーがあったら戻り値にする
+	return eg.Wait()
 
 }
