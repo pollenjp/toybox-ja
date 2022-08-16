@@ -8,7 +8,7 @@ import (
 	"runtime/trace"
 	"time"
 
-	imgconv "github.com/gohandson/toybox-ja/skeleton/section11/step04"
+	imgconv "github.com/pollenjp/toybox-ja/skeleton/section11/step04"
 )
 
 var (
@@ -44,8 +44,8 @@ func run() (rerr error) {
 	}
 	defer trace.Stop()
 
-	// TODO: 3秒でタイムアウトするコンテキストを生成する
-
+	// 3秒でタイムアウトするコンテキストを生成する
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
 	ctx, task := trace.NewTask(ctx, "imgconv")

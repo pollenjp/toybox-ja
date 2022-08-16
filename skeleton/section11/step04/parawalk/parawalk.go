@@ -11,7 +11,8 @@ import (
 type WalkFunc func(ctx context.Context, path string, info fs.FileInfo, err error) error
 
 func Walk(ctx context.Context, root string, fn WalkFunc) error {
-	// TODO: errgroup.WithContextでerrgroupを作成する
+	// errgroup.WithContextでerrgroupを作成する
+	eg, ctx := errgroup.WithContext(ctx)
 
 	err := filepath.Walk(root, func(path string, info fs.FileInfo, err error) error {
 

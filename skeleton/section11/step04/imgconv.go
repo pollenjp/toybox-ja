@@ -12,7 +12,7 @@ import (
 	"runtime/trace"
 	"strings"
 
-	"github.com/gohandson/toybox-ja/skeleton/section11/step04/parawalk"
+	"github.com/pollenjp/toybox-ja/skeleton/section11/step04/parawalk"
 	"golang.org/x/image/tiff"
 )
 
@@ -131,8 +131,8 @@ func ConvertAll(ctx context.Context, root string, to, from Format) error {
 	walkfunc := func(ctx context.Context, path string, info fs.FileInfo, err error) (rerr error) {
 		defer trace.StartRegion(ctx, "convert").End()
 		select {
-		// TODO: すでにキャンセルされているかコンテキストのDoneチャネルから受信して確認
-
+		// すでにキャンセルされているかコンテキストのDoneチャネルから受信して確認
+		case <-ctx.Done():
 			// キャンセルされた
 			return ctx.Err()
 		default:
