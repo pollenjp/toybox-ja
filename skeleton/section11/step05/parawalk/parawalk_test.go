@@ -7,7 +7,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/gohandson/toybox-ja/skeleton/section11/step05/parawalk"
+	"github.com/pollenjp/toybox-ja/skeleton/section11/step05/parawalk"
 )
 
 func skip(paths ...string) parawalk.WalkFunc {
@@ -35,10 +35,12 @@ func TestWalk(t *testing.T) {
 	for _, tt := range cases {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
-			// TODO: diffという名前のsync.Map型の変数を宣言
+			// diffという名前のsync.Map型の変数を宣言
+			var diff sync.Map
 
 			filepath.Walk("testdata", func(path string, info fs.FileInfo, err error) error {
-				// TODO: diffにキーがpathで値struct{}{}をストアする
+				// diffにキーがpathで値struct{}{}をストアする
+				diff.Store(path, struct{}{})
 
 				return tt.fn(context.Background(), path, info, err)
 			})
@@ -52,10 +54,15 @@ func TestWalk(t *testing.T) {
 				return tt.fn(ctx, path, info, err)
 			})
 
-			// TODO: diffマップに要素がある場合はRangeメソッドで要素を回ってエラーを出す
+			// diffマップに要素がある場合はRangeメソッドで要素を回ってエラーを出す
 			// ヒント：unexpectedPathsの処理を参考にする
+			diff.Range(
+				func(path, _ interface{}) bool {
+					t.Errorf("unexpected path: %s", path)
+					return true
+				},
+			)
 
-			
 			unexpectedPaths.Range(func(path, _ interface{}) bool {
 				t.Errorf("walked to unexpected path: %v", path)
 				return true

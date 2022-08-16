@@ -1,4 +1,4 @@
-module github.com/gohandson/toybox-ja/skeleton/section11/step05
+module github.com/pollenjp/toybox-ja/skeleton/section11/step05
 
 go 1.17
 

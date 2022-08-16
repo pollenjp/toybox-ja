@@ -8,7 +8,7 @@ import (
 	"runtime/trace"
 	"time"
 
-	imgconv "github.com/gohandson/toybox-ja/skeleton/section11/step05"
+	imgconv "github.com/pollenjp/toybox-ja/skeleton/section11/step05"
 )
 
 var (
